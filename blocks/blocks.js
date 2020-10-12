@@ -91,5 +91,59 @@ Blockly.defineBlocksWithJsonArray([
   "colour": "#5DADE2",
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "gps_get_hour",
+  "message0": "GPS get Hour",
+  "inputsInline": false,
+  "output": "Number",
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "gps_get_min",
+  "message0": "GPS get Min",
+  "inputsInline": false,
+  "output": "Number",
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "gps_get_sec",
+  "message0": "GPS get Second",
+  "inputsInline": false,
+  "output": "Number",
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "gps_get_day",
+  "message0": "GPS get Day",
+  "inputsInline": false,
+  "output": "Number",
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "gps_get_month",
+  "message0": "GPS get Month",
+  "inputsInline": false,
+  "output": "Number",
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "gps_get_year",
+  "message0": "GPS get Year",
+  "inputsInline": false,
+  "output": "Number",
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
 }
 ]);

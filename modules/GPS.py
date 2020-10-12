@@ -6,34 +6,53 @@ uart = None
 lat = None
 lng = None
 speedkm = None
+d = 0
+m = 0
+y = 0
+hh = 0
+mm = 0
+ss = 0
+timezone = 0
 
 def config(tx_pin):
     global uart
     uart = UART(2, 9600, rx=tx_pin, tx=-1)
 
 def check():
-    global lat, lng, speedkm
-
     if not uart:
         return
-    global lat, lng, speed
+    global lat, lng, speedkm, d, m, y, hh, mm, ss
     while True:
         line = uart.readline()
         if not line:
             break
 
-        regex = r"\$GPRMC,([0-9\.]+)?,([VA]),(([0-9.]+)([0-9]{2}\.[0-9]+))?,([NS])?,(([0-9.]+)([0-9]{2}\.[0-9]+))?,([EW])?,([0-9.]+)?,([0-9.]+)?,([0-9.]+)?,([0-9.]+)?,([0-9.]+)?,(.*)?"
-        match = re.match(regex, line)
-        if match:
-            mode = match.group(2)
-            if mode == b"A":
-                lat = round(float(match.group(4)) + float(match.group(5)) / 60, 6)
-                lng = round(float(match.group(8)) + float(match.group(9)) / 60, 6)
-                speedkm = round(float(match.group(11)), 2)
-            else:
-                lat = None
-                lng = None
-                speedkm = None
+        regex = r"\$G.RMC,([0-9\.]+)?,([VA]),([0-9\.]+),([NS]),([0-9\.]+),([EW]),([0-9\.]+),([0-9\.]+)?,([0-9]+)?"
+
+        matches = re.search(regex, line)
+        if matches:
+            hh = int(matches.group(1)[0:2])
+            mm = int(matches.group(1)[2:4])
+            ss = int(matches.group(1)[4:6])
+            if matches.group(2) == b"A":
+                lat = matches.group(3).decode()
+                dotIndex = lat.index(".")
+                lat = float(lat[:dotIndex - 2]) + float(lat[dotIndex - 2:]) / 60
+                if matches.group(4) == b"S":
+                    lat = -lat
+
+                lng = matches.group(5).decode()
+                dotIndex = lng.index(".")
+                lng = float(lng[:dotIndex - 2]) + float(lng[dotIndex - 2:]) / 60
+                if matches.group(6) == b"W":
+                    lng = -lng
+
+            speedkm = float(matches.group(7))
+
+            d = int(matches.group(9)[0:2])
+            m = int(matches.group(9)[2:4])
+            y = int(matches.group(9)[4:6])
+
 
 def position():
     check()
@@ -42,3 +61,7 @@ def position():
 def speed():
     check()
     return speedkm
+
+def datetime():
+    check()
+    return (y, m, d, hh, mm, ss, 0, timezone)

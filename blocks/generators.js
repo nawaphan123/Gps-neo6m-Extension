@@ -30,3 +30,45 @@ Blockly.Python['gps_speed'] = function(block) {
   var code = `GPS.speed()`;
   return [code, Blockly.Python.ORDER_NONE];
 };
+
+Blockly.Python['gps_get_hour'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var code = 'GPS.datetime()[3]';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['gps_get_min'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var code = 'GPS.datetime()[4]';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['gps_get_sec'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var code = 'GPS.datetime()[5]';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['gps_get_day'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var code = 'GPS.datetime()[2]';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['gps_get_month'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var code = 'GPS.datetime()[1]';
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['gps_get_year'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var code = 'GPS.datetime()[0]';
+  return [code, Blockly.Python.ORDER_NONE];
+};
