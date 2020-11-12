@@ -39,7 +39,7 @@ Blockly.Python['gps_distance'] = function(block) {
   var value_lat2 = Blockly.Python.valueToCode(block, 'lat2', Blockly.Python.ORDER_ATOMIC);
   var value_lng2 = Blockly.Python.valueToCode(block, 'lng2', Blockly.Python.ORDER_ATOMIC);
 
-  var code = `distance(${value_lat1}, ${value_lng1}, ${value_lat2}, ${value_lng2})`;
+  var code = `GPS.distance(${value_lat1}, ${value_lng1}, ${value_lat2}, ${value_lng2})`;
   return [code, Blockly.Python.ORDER_NONE];
 };
 
