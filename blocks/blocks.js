@@ -93,6 +93,44 @@ Blockly.defineBlocksWithJsonArray([
   "helpUrl": ""
 },
 {
+  "type": "gps_distance",
+  "message0": "distance (km) %1 latitude1 %2 longitude1 %3 latitude2 %4 longitude2 %5",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "lat1",
+      "check": "Number",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "lng1",
+      "check": "Number",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "lat2",
+      "check": "Number",
+      "align": "RIGHT"
+    },
+    {
+      "type": "input_value",
+      "name": "lng2",
+      "check": "Number",
+      "align": "RIGHT"
+    }
+  ],
+  "inputsInline": false,
+  "output": null,
+  "colour": "#5DADE2",
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
   "type": "gps_get_hour",
   "message0": "GPS get Hour",
   "inputsInline": false,

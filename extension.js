@@ -3,7 +3,7 @@
     description: "Get latitude longitude and speed from GPS module",
     author: "IOXhop.com",
     category: "Sensors",
-    version: "1.0.0",
+    version: "1.1.0",
     icon: "/static/icon.png", // Category icon
     color: "#5DADE2", // Category color (recommend some blocks color)
     blocks: [ // Blocks in Category
@@ -11,6 +11,32 @@
         "gps_is_ready",
         "gps_position",
         "gps_speed",
+        {
+            xml: `
+                <block type="gps_distance">
+                    <value name="lat1">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="lng1">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="lat2">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                    <value name="lng2">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                    </value>
+                </block>
+            `
+        },
         {
             xml: '<label text="UTC datetime"></label>',
         },

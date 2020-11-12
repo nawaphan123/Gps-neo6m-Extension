@@ -31,6 +31,18 @@ Blockly.Python['gps_speed'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
+Blockly.Python['gps_distance'] = function(block) {
+  Blockly.Python.definitions_['import_GPS'] = 'import GPS';
+
+  var value_lat1 = Blockly.Python.valueToCode(block, 'lat1', Blockly.Python.ORDER_ATOMIC);
+  var value_lng1 = Blockly.Python.valueToCode(block, 'lng1', Blockly.Python.ORDER_ATOMIC);
+  var value_lat2 = Blockly.Python.valueToCode(block, 'lat2', Blockly.Python.ORDER_ATOMIC);
+  var value_lng2 = Blockly.Python.valueToCode(block, 'lng2', Blockly.Python.ORDER_ATOMIC);
+
+  var code = `distance(${value_lat1}, ${value_lng1}, ${value_lat2}, ${value_lng2})`;
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
 Blockly.Python['gps_get_hour'] = function(block) {
   Blockly.Python.definitions_['import_GPS'] = 'import GPS';
 
