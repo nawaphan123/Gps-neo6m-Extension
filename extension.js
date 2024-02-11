@@ -7,7 +7,17 @@
     icon: "/static/icon.png", // Category icon
     color: "#5DADE2", // Category color (recommend some blocks color)
     blocks: [ // Blocks in Category
-        "gps_setup",
+    {
+        xml: `
+            <block type="gps_setup">
+                <value name="pin">
+                    <shadow type="math_number">
+                        <field name="NUM">8</field>
+                    </shadow>
+                </value>
+            </block>
+            `
+        },
         "gps_is_ready",
         "gps_position",
         "gps_speed",
@@ -46,5 +56,9 @@
         "gps_get_day",
         "gps_get_month",
         "gps_get_year"
+    ],
+    supportArduinoPlatform: true,
+    depends: [ // Arduino library
+        "TinyGPS@13.0.0"
     ]
 });
