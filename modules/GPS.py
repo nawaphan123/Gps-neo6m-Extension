@@ -17,7 +17,7 @@ timezone = 0
 
 def config(tx_pin):
     global uart
-    uart = UART(2, 9600, rx=tx_pin, tx=-1)
+    uart = UART(2, 9600, 21, 22)
 
 def check():
     if not uart:
