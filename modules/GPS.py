@@ -3,7 +3,7 @@ from machine import UART
 import re
 from math import sin, cos, sqrt, radians, atan2
 
-uart = None
+uart = ""
 lat = None
 lng = None
 speedkm = None
@@ -15,16 +15,16 @@ mm = 0
 ss = 0
 timezone = 0
 
-def config(tx_pin):
+def config(tx_pin,rx_pin):
     global uart
-    uart = UART(2, 9600, 21, 22)
+    uart = UART(2, 9600, rx=rx_pin,tx=tx_pin)
 
 def check():
-    if not uart:
-        return
+    if uart == "":
+        return "can not read data"
     global lat, lng, speedkm, d, m, y, hh, mm, ss
     while True:
-        line = uart.readline()
+        line = uart.read()
         if not line:
             break
 
@@ -61,7 +61,11 @@ def position():
 
 def speed():
     check()
-    return speedkm
+    return speedkm*2
+    # if(speedkm > 20):
+    #     return True
+    # else:
+    #     return False
 
 def datetime():
     check()
