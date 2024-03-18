@@ -2,8 +2,9 @@ Blockly.Python['gps_setup'] = function(block) {
   Blockly.Python.definitions_['import_GPS'] = 'import GPS';
 
   var dropdown_pin = block.getFieldValue('pin') || Blockly.Python.valueToCode(block, 'pin', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_pin2 = block.getFieldValue('pin2') || Blockly.Python.valueToCode(block, 'pin2', Blockly.Python.ORDER_ATOMIC);
 
-  var code = `GPS.config(${dropdown_pin})\n`;
+  var code = `GPS.config(${dropdown_pin},${dropdown_pin2})\n`;
   return code;
 };
 
@@ -91,9 +92,10 @@ Blockly.JavaScript['gps_setup'] = function(block) {
   Blockly.JavaScript.definitions_['include']['TinyGPS.h'] = '#include <TinyGPS.h>';
   
   var dropdown_pin = block.getFieldValue('pin') || Blockly.JavaScript.valueToCode(block, 'pin', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_pin2 = block.getFieldValue('pin2') || Blockly.JavaScript.valueToCode(block, 'pin2', Blockly.JavaScript.ORDER_ATOMIC);
 
   Blockly.JavaScript.definitions_['define']['gps'] = `TinyGPS gps;`;
-  Blockly.JavaScript.definitions_['define']['gpsSerial'] = `SoftwareSerial gpsSerial(${dropdown_pin}, 0);`;
+  Blockly.JavaScript.definitions_['define']['gpsSerial'] = `SoftwareSerial gpsSerial(${dropdown_pin}, ${dropdown_pin2});`;
 
   var code = `gpsSerial.begin(9600);\n`;
   return code;
