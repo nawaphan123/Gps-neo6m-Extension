@@ -1,6 +1,6 @@
 ({
     name: "GPS", // Category Name
-    description: "Get latitude longitude and speed from GPS module",
+    description: "Get latitude longitude and speed from GPS module (gy-neo6mv2)",
     author: "Nawa",
     category: "Sensors",
     version: "1.2.0",
