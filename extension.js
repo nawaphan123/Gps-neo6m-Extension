@@ -4,7 +4,7 @@
     author: "Nawa",
     category: "Sensors",
     version: "1.2.0",
-    icon: "/static/icon.png", // Category icon
+    icon: "/static/icon2.png", // Category icon
     color: "#5DADE2", // Category color (recommend some blocks color)
     blocks: [ // Blocks in Category
     {
