@@ -1,7 +1,7 @@
 Blockly.defineBlocksWithJsonArray([
 {
   "type": "gps_setup",
-  "message0": "GPS setup (tx pin: %1 )",
+  "message0": "GPS setup (tx pin: %1 rx pin: %2)",
   "args0": [
     [ "kidbright", "openkb" ].findIndex(a => boardId.startsWith(a)) >= 0 ? {
       "type": "field_dropdown",
@@ -20,6 +20,25 @@ Blockly.defineBlocksWithJsonArray([
     } : {
       "type": "input_value",
       "name": "pin",
+      "check": "Number"
+    },
+    [ "kidbright", "openkb" ].findIndex(a => boardId.startsWith(a)) >= 0 ? {
+      "type": "field_dropdown",
+      "name": "pin2",
+      "options": [
+        [ "IN1", "32" ],
+        [ "IN2", "33" ],
+        [ "IN3", "34" ],
+        [ "IN4", "35" ],
+        [ "OUT1", "26" ],
+        [ "OUT2", "27" ],
+        [ "23", "23" ],
+        [ "19", "19" ],
+        [ "18", "18" ]
+      ]
+    } : {
+      "type": "input_value",
+      "name": "pin2",
       "check": "Number"
     },
   ],
