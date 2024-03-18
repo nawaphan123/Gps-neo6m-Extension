@@ -1,7 +1,7 @@
 ({
     name: "GPS", // Category Name
     description: "Get latitude longitude and speed from GPS module (gy-neo6mv2)",
-    author: "Nawa",
+    author: "Nawa Phansaen",
     category: "Sensors",
     version: "1.2.0",
     icon: "/static/icon2.png", // Category icon
