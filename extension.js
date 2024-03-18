@@ -1,7 +1,7 @@
 ({
     name: "GPS", // Category Name
     description: "Get latitude longitude and speed from GPS module",
-    author: "ArtronShop",
+    author: "Nawa",
     category: "Sensors",
     version: "1.2.0",
     icon: "/static/icon.png", // Category icon
